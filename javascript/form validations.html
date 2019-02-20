@@ -1,0 +1,50 @@
+<html>
+<head>
+     <script>
+        function namevalidation() {
+            var fname = document.getElementById("firname").value;
+            if(fname.length < 1){
+                alert("Please enter first name");
+               
+            }
+            else 
+              {
+              //alert(fname);    
+              fname = fname.toUpperCase();
+              document.getElementById("firname").value = fname;
+              //alert(fname);  
+
+              }
+        }
+
+
+
+     </script>
+                
+
+</head>    
+<body>
+
+First Name: <input type="text" id="firname" onblur="namevalidation()">
+
+<p>SELECT YOUR State    
+        <select type="text" value="" name="State"> 
+            <option>Telengana</option> 
+            <option>Maharashtra</option> 
+            <option>Karnataka</option> 
+            <option>Odisha</option> 
+            <option>Kolkata</option> 
+        </select></p></body><br><br>
+ <p>Color Selection    
+    <select type="text" value="" name="color"> 
+      <option>Red</option> 
+      <option>Yellow</option> 
+      <option>Green</option> 
+    </select></p></body><br><br>        
+
+
+
+
+
+</body>
+</html>

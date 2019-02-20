@@ -1,0 +1,101 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script>
+        function getUserChoice(choice) {
+                choice = choice.toLowerCase();
+                if(choice =="scissors" || choice =="paper" || choice =="rock")
+                {    
+                    var computerChoice = getComputerChoice();                    
+                    var res = determineWinnerthat(choice,computerChoice);
+                    //alert("  res: "+res);
+                    return choice;
+                }
+
+                else {
+                     console.log("Invalid choice");
+                     return "invalid";
+                    }  
+        };
+
+        function getComputerChoice(){
+            var computerChoice;
+            do{   computerChoice = Math.random();
+                  computerChoice = Math.floor(computerChoice*10);
+              }                        
+            while(computerChoice != 0 && computerChoice != 1 && computerChoice != 2);
+            if(computerChoice ==0){
+                    computerChoice="rock";
+            }
+            else if(computerChoice ==1){
+                 computerChoice="paper";
+            }
+            else
+              computerChoice="scissors";
+
+            return(computerChoice);
+        }; 
+
+        function determineWinnerthat(uchoice,computerChoice){
+                if(uchoice===computerChoice){
+                  return "The result is a tie!";
+                }
+                if(uchoice==="rock"){
+                   if(computerChoice==="scissors"){
+                        return "User with rock wins";
+                    }
+                  else{
+                      return "Computer with paper wins";
+                  }
+                }
+                if(uchoice==="paper"){
+                    if(computerChoice==="rock"){
+                        return "User with paper wins";
+                    }
+                    else{
+                        return "Computer with scissors wins";
+                    }
+                }
+             if(uchoice==="scissors"){
+                if(computerChoice==="rock"){
+                    return "Computer with rock wins";
+                }
+                else{
+                    return "User with scissors wins";
+                }
+             }
+
+        };
+
+        function playGame(choice){
+           var userChoice = getUserChoice(choice);
+           if(userChoice != "invalid"){
+            console.log("********************************");
+                console.log("user choice: "+userChoice);
+                var computerChoice = getComputerChoice();
+                console.log("computer choice: "+computerChoice);
+                console.log(determineWinnerthat(userChoice,computerChoice));
+           }
+
+        };
+
+</script>
+
+</head>    
+<body >
+    <div class="container">  
+      <div class="jumbotron">
+        <p>Which one will it be?</p>
+
+        <a href="#" onclick="playGame('rock')">rock</a>
+   
+        <a href="#" onclick="playGame('paper')">paper</a>
+   
+        <a href="#" onclick="playGame('scissors')">scissors</a>
+       </div> 
+    </div>
+    
+</body>
+</html>

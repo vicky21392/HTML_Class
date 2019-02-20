@@ -1,0 +1,12 @@
+var a= prompt("Please enter number: ");
+var num=parseInt(a);
+var r = Math.random();
+r=r*100;
+r=Math.floor(r);
+console.log("random: "+r);
+console.log("user number: "+num);
+if(r == num){
+	 console.log("Win!!");
+}
+else 
+	console.log("Lose!!");
